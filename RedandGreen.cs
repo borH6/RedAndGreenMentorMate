@@ -5,13 +5,13 @@ namespace RedAndGreen
     //създаваме клас Матрица който ще ни съдържа атрибутите, параметрите и функцкиите
     class Matrix
     {
-        int[,] arr;
-        int W;
-        int H;
-        int cellX;
-        int cellY;
-        int K;
-        int[,] b;
+        int[,] arr; //двуизмерен масив който ще съдържа матрицата
+        int W;      // ширина на матрицата
+        int H;      // височина на матрицата
+        int cellX;  // посочена клетка по координата Х
+        int cellY;  // посочена клетка по координата Y
+        int K;      // брой итерации
+        int[,] b;   // следващата генерация на матрицата, която се генерира сама като се извърши итерация
 
         public Matrix(int[,] inputMatrix,int inputWidth,int inputHeight,int inputX,int inputY,int inputK, int[,] newMatrix)
         {
