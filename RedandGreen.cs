@@ -101,25 +101,25 @@ namespace RedAndGreen
             Console.WriteLine("Въведете измерения: X Y");
             var line = Console.ReadLine();
             var data = line.Split(' ');
-            var W2 = int.Parse(data[0]); 
-            var H2 = int.Parse(data[1]);
-            while(W2>H2 || H2>1000)
+            var W = int.Parse(data[0]); 
+            var H = int.Parse(data[1]);
+            while(W>H || H>1000)
             {
-                Console.WriteLine("X трябва да е по-малко от Y,или Y e по-малко от 1000");
+                Console.WriteLine("X трябва да е по-малко от Y");
                 line = Console.ReadLine();
                 data = line.Split(' ');
-                W2 = int.Parse(data[0]);
-                H2 = int.Parse(data[1]);
+                W = int.Parse(data[0]);
+                H = int.Parse(data[1]);
             }
             //По правило от задачата, X<=Y<1000
             
-             int[,] A = new int[W2, H2];
+             int[,] A = new int[W, H];
              Console.WriteLine("Въведете матрицата:");
-             for (int i = 0; i < W2; i++)
+             for (int i = 0; i < W; i++)
              {
                  var lineinput = Console.ReadLine();
                  var dataMatrix = lineinput.Split(' ');
-                 for (int j = 0; j < H2; j++)
+                 for (int j = 0; j < H; j++)
                  {
                      A[i, j] = int.Parse(dataMatrix[j]);
                  }
@@ -127,15 +127,15 @@ namespace RedAndGreen
              Console.WriteLine("Въведете X,Y координати на клетка за проверка и брой итерации:");
              var line2 = Console.ReadLine();
              var data2 = line2.Split(' ');
-             var chosenX2 = int.Parse(data2[0]);
-             var chosenY2 = int.Parse(data2[1]);
-             var K2 = int.Parse(data2[2]);
+             var chosenX = int.Parse(data2[0]);
+             var chosenY = int.Parse(data2[1]);
+             var K = int.Parse(data2[2]);
 
-             int[,] b2 = new int[W2, H2];
+             int[,] b = new int[W, H];
              
-             Matrix m2 = new Matrix(A, W2, H2, chosenX2, chosenY2, K2, b2);
-             m2.nextIteration();
-             Console.WriteLine();
+             Matrix m = new Matrix(A, W, H, chosenX, chosenY, K, b);
+             m.nextIteration();
+             Console.WriteLine();         
         }
     }
 }
