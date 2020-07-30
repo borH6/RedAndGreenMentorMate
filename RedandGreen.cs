@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RedAndGreen
 {
@@ -33,7 +29,7 @@ namespace RedAndGreen
 
             // c ще ни служи за брояч на зелени клетки (1-ци)
             int c = 0;
-            // timesGreen е втория брояч който е за това колко пъти дадена клетка става зелена
+            // timesGreen е втория брояч който служи за това колко пъти дадена клетка става зелена
             int timesGreen = 0;
             do
             {
@@ -41,12 +37,11 @@ namespace RedAndGreen
                 //Два nested for цикъла за итериране на матрицата
                 for (int i = 0; i < W; i++)
                 {
-                   // Console.WriteLine();
                     for (int j = 0; j < H; j++)
                     {
                         c = 0;
 
-                        // Тук брояча се увеличава ако има зелени съседи  
+                        // Тук брояча се увеличава ако има зелени съседи (1-ци)
 
                         if (i > 0 && arr[i - 1, j] == 1)
                             c++;
@@ -82,9 +77,9 @@ namespace RedAndGreen
                             else
                                 b[i, j] = 0;
                         }
-                       // Console.Write(b[i, j] + " ");
                     }
                 }
+                //Увеличаваме брояча за това дадената клетка колко пъти е станала зелена
                 if (b[cellX, cellY] == 1)
                 {
                     ++timesGreen;
@@ -108,9 +103,9 @@ namespace RedAndGreen
             var data = line.Split(' ');
             var W2 = int.Parse(data[0]); 
             var H2 = int.Parse(data[1]);
-            while(W2>H2)
+            while(W2>H2 || H2>1000)
             {
-                Console.WriteLine("X трябва да е по-малко от Y");
+                Console.WriteLine("X трябва да е по-малко от Y,или Y e по-малко от 1000");
                 line = Console.ReadLine();
                 data = line.Split(' ');
                 W2 = int.Parse(data[0]);
@@ -140,9 +135,7 @@ namespace RedAndGreen
              
              Matrix m2 = new Matrix(A, W2, H2, chosenX2, chosenY2, K2, b2);
              m2.nextIteration();
-            Console.WriteLine();
-            
-            
+             Console.WriteLine();
         }
     }
 }
